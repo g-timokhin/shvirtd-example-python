@@ -3,4 +3,41 @@ include:
     - ./proxy.yaml
 services:
     web:
+      build:
+        context: .
+        dockerfile: Dockerfile.python
+      networks:
+         backend:
+           ipv4_address: 172.20.0.5
+      environment:
+         MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD=}
+         MYSQL_DATABASE="virtd"
+         MYSQL_USER="app"
+         MYSQL_PASSWORD=${MYSQL_PASSWORD=}
+      restart: always
+
+    db:
+      image: mysql:8
+      networks:
+         backend:
+           ipv4_address: 172.20.0.10
+      environment:
+         MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD=}
+         MYSQL_DATABASE="virtd"
+         MYSQL_USER="app"
+         MYSQL_PASSWORD=${MYSQL_PASSWORD=}
+      restart: always
+
+networks:
+   backend:
+     driver: bridge
+     ipam:
+       config:
+         - subnet: 172.20.0/24
+     
+         
+     
+    
+      
+
        
