@@ -10,10 +10,10 @@ services:
          backend:
            ipv4_address: 172.20.0.5
       environment:
-         MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD=}
-         MYSQL_DATABASE="virtd"
-         MYSQL_USER="app"
-         MYSQL_PASSWORD=${MYSQL_PASSWORD=}
+         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+         - MYSQL_DATABASE="virtd"
+         - MYSQL_USER="app"
+         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       restart: always
 
     db:
@@ -22,10 +22,10 @@ services:
          backend:
            ipv4_address: 172.20.0.10
       environment:
-         MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD=}
-         MYSQL_DATABASE="virtd"
-         MYSQL_USER="app"
-         MYSQL_PASSWORD=${MYSQL_PASSWORD=}
+         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+         - MYSQL_DATABASE="virtd"
+         - MYSQL_USER="app"
+         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       restart: always
 
 networks:
