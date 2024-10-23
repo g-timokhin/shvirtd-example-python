@@ -1,4 +1,3 @@
-version: '3'
 include:
     - ./proxy.yaml
 services:
@@ -28,12 +27,7 @@ services:
          - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       restart: always
 
-networks:
-   backend:
-     driver: bridge
-     ipam:
-       config:
-         - subnet: 172.20.0/24
+
      
          
      
