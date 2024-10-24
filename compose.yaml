@@ -9,10 +9,10 @@ services:
          backend:
            ipv4_address: 172.20.0.5
       environment:
-         - MYSQL_DATABASE=virtd
-         - MYSQL_USER=app
-         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-         - MYSQL_ROOT_HOST=mysql
+         - DB_NAME=virtd
+         - DB_USER=app
+         - DB_PASSWORD=${MYSQL_PASSWORD}
+         - DB_HOST=mysql
       restart: always
 
     db:
